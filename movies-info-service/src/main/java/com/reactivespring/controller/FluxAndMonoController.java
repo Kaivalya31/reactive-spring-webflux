@@ -20,6 +20,8 @@ public class FluxAndMonoController {
         return Mono.just(15).log();
     }
 
+    //Specifying the MediaType instructs the endpoint to produce a
+    //stream of data to the client.
     @GetMapping(value = "/stream", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<Long> stream(){
         return Flux.interval(Duration.ofSeconds(2)).log();

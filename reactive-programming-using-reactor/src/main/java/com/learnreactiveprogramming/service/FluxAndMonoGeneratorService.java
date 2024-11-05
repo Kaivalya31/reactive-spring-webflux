@@ -11,7 +11,7 @@ import java.util.function.Function;
 public class FluxAndMonoGeneratorService {
 
     public Flux<String> namesFlux(){
-        //A flux ususlly comes from a DB or as a result of a service call.
+        //A flux usually comes from a DB or as a result of a service call.
         return Flux.fromIterable(List.of("Kaivalya", "Sourav", "Srivastava")).log();
     }
 

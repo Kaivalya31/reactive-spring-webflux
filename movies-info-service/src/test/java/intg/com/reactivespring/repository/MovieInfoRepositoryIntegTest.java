@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @DataMongoTest //scans the application for the repo. class and use it in the TCs.
 @ActiveProfiles("test") //to specify the profile to be used by the embedded MongoDB instance
-    //started by @DataMongoTest for the below tests.
+    //started by @DataMongoTest for the below tests. The profile for the embedded MongoDB is 'test'.
 class MovieInfoRepositoryIntegTest {
 
     @Autowired
