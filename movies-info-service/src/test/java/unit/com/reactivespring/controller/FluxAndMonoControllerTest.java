@@ -14,7 +14,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @WebFluxTest(controllers = FluxAndMonoController.class)//this will start the Spring Boot app.
 //and make all the endpoints defined in the controller available.
-@AutoConfigureWebTestClient
+@AutoConfigureWebTestClient//Ensures that the TestClient instance is automatically
+    //injected into this class.
 class FluxAndMonoControllerTest {
 
     @Autowired

@@ -18,10 +18,10 @@ import java.util.List;
 @Validated
 public class MovieInfo {
     private String movieInfoId;
-    @NotBlank(message = "movieInfo.name must be present")
+    @NotBlank(message = "movieInfo name must be present")
     private String name;
     @NotNull
-    @Positive(message = "movieInfo.year must be a Positive Value")
+    @Positive(message = "movieInfo year must be a Positive Value")
     private Integer year;
 
     @NotNull
