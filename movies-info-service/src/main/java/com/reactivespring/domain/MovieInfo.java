@@ -25,7 +25,7 @@ public class MovieInfo {
     @NotNull
     @NotBlank(message = "Movie name can't be left empty")//Bean validation example
     private String name;
-    
+
     @NotNull
     private List<@NotBlank(message = "You must mention atleast a single cast") String> cast;
     private LocalDate releaseDate;
