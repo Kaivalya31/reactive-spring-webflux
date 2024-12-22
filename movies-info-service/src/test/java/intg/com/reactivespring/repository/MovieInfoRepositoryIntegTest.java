@@ -63,6 +63,15 @@ class MovieInfoRepositoryIntegTest {
     }
 
     @Test
+    void testFindByYear(){
+        var movieInfoFlux = movieInfoRepository.findByYear(2013);
+
+        StepVerifier.create(movieInfoFlux)
+                .expectNextCount(1)
+                .verifyComplete();
+    }
+
+    @Test
     void testSaveMovieInfo(){
         var newMovie = new MovieInfo(null, "12th Fail", List.of("Vikrant Massey", "Medha Shankr", "Anant Joshi"),
                 LocalDate.parse("2023-10-23"), 2023, 9.1);

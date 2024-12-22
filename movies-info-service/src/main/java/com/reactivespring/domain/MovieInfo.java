@@ -23,18 +23,17 @@ public class MovieInfo {
     private String movieInfoId;
 
     @NotNull
-    @NotBlank(message = "Movie name can't be left empty.")//Bean validation example
+    @NotBlank(message = "Movie name can't be left empty")//Bean validation example
     private String name;
 
-    private List<@NotBlank(message = "You must mention atleast a single cast.") String> cast;
-
     @NotNull
+    private List<@NotBlank(message = "You must mention atleast a single cast") String> cast;
     private LocalDate releaseDate;
 
     @NotNull
     @Positive
     private Integer year;
 
-    @Positive(message = "IMDb rating can't be less than 0.")
+    @Positive(message = "IMDb rating can't be less than 0")
     private Double IMDbRating;
 }
