@@ -17,7 +17,7 @@ import java.util.List;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
 @AutoConfigureWebTestClient
-public class ReviewsIntgTest {
+public class   ReviewsIntgTest {
 
     private static final String REVIEWS_URL = "/v1";
     @Autowired
