@@ -18,11 +18,11 @@ curl -i \
 
 GET-ALL-MOVIE-INFO
 -----------------------
-curl -i http://localhost:8080/v1/movieinfos
+curl -i http://localhost:8080/v1/listmovies
 
 GET-MOVIE-INFO-BY-ID
 -----------------------
-curl -i http://localhost:8080/v1/movieinfos/1
+curl -i http://localhost:8080/v1/findmovie/1
 
 GET-MOVIE-INFO-STREAM
 -----------------------
@@ -33,11 +33,11 @@ UPDATE-MOVIE-INFO
 curl -i \
 -d '{"movieInfoId":1, "name": "Batman Begins", "year":2005,"cast":["Christian Bale", "Michael Cane", "Liam Neeson"],"release_date": "2005-06-15"}' \
 -H "Content-Type: application/json" \
--X PUT http://localhost:8080/v1/movieinfos/1
+-X PUT http://localhost:8080/v1/updatemovieinfo/1
 
 DELETE-MOVIE-INFO
 -----------------------
-curl -i -X DELETE http://localhost:8080/v1/movieinfos/1
+curl -i -X DELETE http://localhost:8080/v1/deletemovieinfo/1
 
 
 STREAM-MOVIE-INFO

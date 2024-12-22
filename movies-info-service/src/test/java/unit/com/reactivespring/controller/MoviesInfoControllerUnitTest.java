@@ -136,9 +136,10 @@ public class MoviesInfoControllerUnitTest {
 
     @Test
     void testAddMovieInfoValidation() {
-        var movieInfo = new MovieInfo("mockId", "", List.of(), LocalDate.parse("1972-03-24"), 1972, -1.2);
+        var movieInfo = new MovieInfo("mockId", "", List.of(""), LocalDate.parse("1972-03-24"), 1972, -1.2);
 
-        when(moviesInfoServiceMock.addMovieInfo(isA(MovieInfo.class))).thenReturn(Mono.just(movieInfo));
+        //We don't need mocking once we have an exception handler
+        //when(moviesInfoServiceMock.addMovieInfo(isA(MovieInfo.class))).thenReturn(Mono.just(movieInfo));
 
         webTestClient
                 .post()
@@ -151,8 +152,9 @@ public class MoviesInfoControllerUnitTest {
                 .consumeWith(stringEntityExchangeResult -> {
                     var response = stringEntityExchangeResult.getResponseBody();
                     assertNotNull(response);
-                    var expectedResponseMessage = "Movie name can't be left empty.,You must mention atleast a single cast.";
+                    var expectedResponseMessage = "IMDb rating can't be less than 0,Movie name can't be left empty,You must mention atleast a single cast";
                     System.out.println(expectedResponseMessage);
+                    assertEquals(expectedResponseMessage, response);
                 });
     }
 }
