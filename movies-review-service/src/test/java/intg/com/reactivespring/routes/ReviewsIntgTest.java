@@ -11,6 +11,7 @@ import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import java.util.List;
 
@@ -58,6 +59,20 @@ public class ReviewsIntgTest {
                     var savedMovieReview = reviewEntityExchangeResult.getResponseBody();
                     assertNotNull(savedMovieReview);
                     assertNotNull(savedMovieReview.getReviewId());
+                });
+    }
+
+    @Test
+    void testGetReviews(){
+        webTestClient.get()
+                .uri(REVIEWS_URL + "/allReviews")
+                .exchange()
+                .expectStatus()
+                .is2xxSuccessful()
+                .expectBodyList(Review.class)
+                .value(reviews -> {
+                    assertNotNull(reviews);
+                    assertEquals(reviews.size(), 3);
                 });
     }
 }
